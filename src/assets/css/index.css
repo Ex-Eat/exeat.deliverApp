@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Lexend-Regular";
+    src: url("../font/Lexend-regular.ttf") format("truetype");
+}
+
+
+
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+    --exeat-c-white: #ffffff;
+    --exeat-c-primary: #C86556;
+    --exeat-c-primary-light: #D38377;
+    --exeat-c-primary-lighter: #DC9D93;
+    --exeat-c-secondary: #2B1E1E;
+    --exeat-c-grey-light: #F5F5F5;
+
+    --vdp-hover-bg-color: #DC9D93;
+    --vdp-selected-bg-color: #C86556;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
+    outline: none;
+}
+
+body {
+    min-height: 100vh;
+    transition: color 0.3s, background-color 0.3s;
+    line-height: 1.6;
+    font-family: Lexend-Regular, sans-serif;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
