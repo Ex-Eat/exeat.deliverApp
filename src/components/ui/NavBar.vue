@@ -9,7 +9,7 @@ import PersonIcon from '@/components/icons/PersonIcon.vue';
 import { storeToRefs } from 'pinia';
 
 export default {
-	components: { PersonIcon, MenuIcon, IconSearch, PinkButton, WhiteButton },
+	components: { PersonIcon, PinkButton, WhiteButton },
 	setup() {
 		const userStore = useUserStore();
 		userStore.loadUser();
@@ -24,36 +24,15 @@ export default {
 
 <template>
 	<div
-		class="bg-exeat-white grid grid-cols-3 items-center p-0 m-0 justify-items-stretch border-b-2 border-b-gray h-[90px]"
+		class="bg-exeat-white grid grid-cols-2 items-center p-0 m-0 justify-items-space-between border-b-2 border-b-gray h-[90px] w-[100%]"
 	>
 		<!-- nom -->
-		<div class="flex items-left text-center">
-			<div class="px-4">
-				<MenuIcon :height="36" :width="36" />
-			</div>
-			<div class="">
+		<div class="flex items-left text-center w-[70%]">
+			<div class="px-10">
 				<RouterLink to="/">
-					<span class="font-bold font-mono text-3xl">ex'eat</span>
+					<span class="font-bold font-mono text-2xl">ex'eat</span>
+					<span class="font-bold font-mono text-2xl text-primary-700"> livreur</span>
 				</RouterLink>
-			</div>
-		</div>
-
-		<!-- Barre de recherche -->
-		<div class="mt-2 mb-2 relative">
-			<input
-				type="search"
-				id="default-search"
-				class="block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-100 rounded-full border border-gray-100 focus:border-gray-300"
-				placeholder="Restaurants, Produits, ..."
-				required
-			/>
-			<div class="flex absolute inset-y-0 left-0 items-center pl-1">
-				<button
-					type="submit"
-					class="w-8 h-8 p-2 rounded-full inline-flex items-center bg-gray-100 hover:brightness-95 focus:brightness-90 transition"
-				>
-					<IconSearch />
-				</button>
 			</div>
 		</div>
 
@@ -69,9 +48,7 @@ export default {
 		<div v-else class="flex justify-self-end items-center mr-4 space-x-2">
 			<WhiteButton>
 				<PersonIcon :height="24" :width="24" />
-				<span>{{ user.username }}</span>
 			</WhiteButton>
-			<PinkButton>Panier</PinkButton>
 		</div>
 	</div>
 </template>

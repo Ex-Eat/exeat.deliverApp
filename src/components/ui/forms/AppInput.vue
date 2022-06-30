@@ -35,7 +35,7 @@ export default {
 			:name="name"
 			:type="type"
 			:id="'form-input-' + name"
-			@keyup="this.$emit('update:value', $event.target.value)"
+			@change="this.$emit('update:value', $event.target.value)"
 			class="rounded-full border px-5 w-full h-[44px] text-sm focus:border-primary-500 focus:border-2 transition focus:px-[19px]"
 			:class="{ 'border-red-500': error }"
 		/>
@@ -45,7 +45,9 @@ export default {
 			class="absolute left-[17px] top-[12px] cursor-text px-1 bg-white text-sm text-gray-500"
 			>{{ label }}</label
 		>
-		<p v-if="helperText" class="text-xs text-gray-500 ml-5 my-1" :class="{ 'text-red-500': error }">{{ helperText }}</p>
+		<p v-if="helperText" class="text-xs text-gray-500 ml-5 my-1" :class="{ 'text-red-500': error }">
+			{{ helperText }}
+		</p>
 	</div>
 </template>
 

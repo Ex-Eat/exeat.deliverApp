@@ -12,6 +12,7 @@ export const useUserStore = defineStore({
 		async loadUser() {
 			try {
 				const response = await instance.get(routes.LOAD_CONNECTED_USER);
+				console.log(response.data)
 				this.user = response.data;
 				return { message: 'User successfully loaded' };
 			} catch (error) {
@@ -44,6 +45,27 @@ export const useUserStore = defineStore({
 				await instance.get(routes.LOGOUT);
 				this.user = null;
 				return { message: 'Successfully disconnected' };
+			} catch (error) {
+				return error;
+			}
+		},
+		async signupAsDeliver(data: any) {
+			try {
+				if (this.user) {
+					data.globalUserId = this.user['id'];
+					data = { data: data }
+					const response = await instance.post(routes.SIGNUP_DELIVER, data);
+					this.user = response.data;
+					return { message: 'Successfully created' };
+				}
+			} catch (error) {
+				return error;
+			}
+		},
+		async getLocationFromAddress(data: any) {
+			try {
+				data = { data: data }
+				return await instance.post(routes.GEOCODING, data);
 			} catch (error) {
 				return error;
 			}
